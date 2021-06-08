@@ -18,7 +18,7 @@ body {
 
 .split {
     display: flex;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     justify-content: space-around;
     margin-top: 100px;
 }
@@ -159,8 +159,9 @@ plates {
 }
 
 /* MEDIA QUERY... */
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1024px) {
     .split {
+        flex-wrap: wrap;
         margin: auto;
     }
     .regNumber2 {

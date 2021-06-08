@@ -27,7 +27,6 @@ if (localStorage['registration no.']) {
     tempEnteredRegNo = JSON.parse(localStorage.getItem("registration no."));
 
 }
-console.log(Object.keys(tempEnteredRegNo))
 
 //  Instantiate the instance of the factory function
 let tempRegistration = regNumberFactory(tempEnteredRegNo);
@@ -36,10 +35,7 @@ let tempRegistration = regNumberFactory(tempEnteredRegNo);
 
 function disapendMyObject(tempObject) {
     var change = Object.keys(tempObject);
-    // let element = document.querySelector('.tempFinalReg');
-    // while (element.firstChild) {
-    //     element.removeChild(element.firstChild);
-    // }
+    
     for (var i = 0; i < change.length; i++) {
         let newTempRegNo = document.createElement('plates');
 
@@ -265,10 +261,11 @@ function tempResetPage() {
     localStorage.clear();
 
     setTimeout(function () {
-        tempFinalRegField.innerHTML = "The page will be reset shortly";
+        tempFinalRegField.innerHTML = "The page has been successfully reset!";
         tempFinalRegField.classList.remove('error');
         tempFinalRegField.classList.add('proceed');
         tempRegTextbox.value = "";
+        tempCheckedRadioTownBtn = "";
         document.getElementById('tempRadio-town1').checked = false;
         document.getElementById('tempRadio-town2').checked = false;
         document.getElementById('tempRadio-town3').checked = false;
@@ -277,7 +274,7 @@ function tempResetPage() {
     }, 0);
 
     setTimeout(function () {
-        location.reload();
+        tempFinalRegField.innerHTML = "";
 
     }, 2500);
 

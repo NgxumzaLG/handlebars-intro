@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Number</title>
+    <link rel="stylesheet" href="./css/registration_number.css">
+
+</head>
+<body> 
+    <div class="split">
+        <section class="regNumber1">
+            <header class="header">
+                <div class="container reg-header">
+                    <h1>REGISTRATION NUMBER</h1>
+                </div>
+                
+            </header>
+
+            <section class="create-reg">
+                <div class="container reg-create">
+                    <div class="reg-textbox">
+                        Registration No.
+                        <input type="text" name="" value="" placeholder="enter a registration number" class="regText">
+                        <h4>Accepted Registration Formats</h4>
+                        <p>CA 123356, CA 123 456 or CA 123-456</p>
+                        <div class="errors"></div>
+                    </div>
+
+                    <div class="reg-btn">
+                        <button class="addRegBtn" on type="button" name="button">Add Registration No. </button>
+                        <button class="resetBtn" on type="button" name="button">Reset</button>
+                    </div>
+
+                    <div class="radio-btn">
+                        <input type="radio" class="radio-town" id="radio-town1" name="towns" value="capetown">Cape Town
+                        <input type="radio" class="radio-town" id="radio-town2" name="towns" value="bellville">Bellville
+                        <input type="radio" class="radio-town" id="radio-town3" name="towns" value="paarl">Paarl
+                        <input type="radio" class="radio-town" id="radio-town4" name="towns" value="stellenbosch">Stellenbosch
+                    </div>
+
+                    <div class="show-btn">
+                        <button class="showBtn" on type="button" name="button">Show</button>
+                        <button class="showAllBtn" on type="button" name="button">Show All</button>
+                        <!-- <button onclick="location.href = './mocha-regnumber.html'" class="unitTestingBtn" on type="button" name="button">Unit Testing</button> -->
+                    </div>
+
+                    <div class="finalReg">
+                        <!-- <div class="plates"></div> -->
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </section>
+
+        <section class="regNumber2">
+            <header class="header">
+                <div class="container reg-header">
+                    <h1>REGISTRATION NUMBER</h1>
+                </div>
+                
+            </header>
+
+            <section class="create-reg">
+                <div class="container reg-create">
+                    <div class="reg-textbox">
+                        Registration No.
+                        <input type="text" name="" value="" placeholder="enter a registration number" class="tempRegText">
+                        <h4>Accepted Registration Formats</h4>
+                        <p>CA 123356, CA 123 456 or CA 123-456</p>
+                        <div class="tempErrors"></div>
+                    </div>
+
+                    <div class="reg-btn">
+                        <button class="tempAddRegBtn" on type="button" name="button">Add Registration No. </button>
+                        <button class="tempResetBtn" on type="button" name="button">Reset</button>
+                    </div>
+
+                    <div class="radio-btn">
+                        <input type="radio" class="tempRadio-town" id="tempRadio-town1" name="tempTowns" value="capetown">Cape Town
+                        <input type="radio" class="tempRadio-town" id="tempRadio-town2" name="tempTowns" value="bellville">Bellville
+                        <input type="radio" class="tempRadio-town" id="tempRadio-town3" name="tempTowns" value="paarl">Paarl
+                        <input type="radio" class="tempRadio-town" id="tempRadio-town4" name="tempTowns" value="stellenbosch">Stellenbosch
+                    </div>
+
+                    <div class="show-btn">
+                        <button class="tempShowBtn" on type="button" name="button">Show</button>
+                        <button class="tempShowAllBtn" on type="button" name="button">Show All</button>
+                        <!-- <button onclick="location.href = './mocha-regnumber.html'" class="unitTestingBtn" on type="button" name="button">Unit Testing</button> -->
+                    </div>
+
+                    <div class="tempFinalReg">
+                        <!-- <div class="plates"></div> -->
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </section>
+
+    </div>
+
+    <script src="./factory-functions/reg_number-factory.js" charset="UTF-8"></script>
+    <!-- <script src="./factory-functions/reg_number-tempfactory.js" charset="UTF-8"></script> -->
+
+    <script src="./js/reg_number.js" charset="UTF-8"></script>
+    <script src="./js/reg-number-temp.js" charset="UTF-8"></script>
+    
+</body>
+</html>

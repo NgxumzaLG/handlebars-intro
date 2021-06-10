@@ -31,18 +31,23 @@ if (localStorage['registration no.']) {
 //  Instantiate the instance of the factory function
 let tempRegistration = regNumberFactory(tempEnteredRegNo);
 
+// Templates
+var regTemplateSource = document.querySelector(".regTemplate").innerHTML;
+var userRegTemplate = Handlebars.compile(regTemplateSource);
+
 // function to create and appendChild element
 
 function disapendMyObject(tempObject) {
     var change = Object.keys(tempObject);
     
-    for (var i = 0; i < change.length; i++) {
-        let newTempRegNo = document.createElement('plates');
+    // for (var i = 0; i < change.length; i++) {
+        // let newTempRegNo = document.createElement('plates');
 
-        newTempRegNo.textContent = change[i];
-        tempFinalRegField.appendChild(newTempRegNo);
+        // newTempRegNo.textContent = change[i];
+        // tempFinalRegField.appendChild(newTempRegNo);
+        tempFinalRegField.innerHTML = userRegTemplate({regNumbers: change})
 
-    }
+    // }
 }
 
 function disapendMyArray(tempArray) {

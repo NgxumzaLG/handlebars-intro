@@ -234,8 +234,8 @@ function tempShowAllTownReg() {
     document.getElementById('tempRadio-town4').checked = false;
     tempCheckedRadioTownBtn = "";
 
-    var objectTown = Object.keys(tempEnteredRegNo);
-    if (objectTown.length != 0) {
+    var objectTown1 = Object.keys(tempEnteredRegNo);
+    if (objectTown1.length != 0) {
         disapendMyObject(tempEnteredRegNo);
 
     } else {

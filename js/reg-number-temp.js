@@ -16,14 +16,14 @@ tempResetButton.addEventListener('click', tempResetPage)
 
 // Additional Global Variables
 var tempCheckedRadioTownBtn = "";
-let tempEnteredRegNo;
+let tempEnteredRegNo = {};
 
 const tempRegExp1 = /^((CA|CY|CJ|CL)\s([0-9]){6})$/;
 const tempRegExp2 = /^((CA|CY|CJ|CL)\s([0-9]){3}\s([0-9]){3})$/;
 const tempRegExp3 = /^((CA|CY|CJ|CL)\s([0-9]){3}\-([0-9]){3})$/;
 
 // localStorage 
-if (localStorage['registration no.']) {
+if (localStorage["registration no."]) {
     tempEnteredRegNo = JSON.parse(localStorage.getItem("registration no."));
 
 }
@@ -31,34 +31,24 @@ if (localStorage['registration no.']) {
 //  Instantiate the instance of the factory function
 let tempRegistration = regNumberFactory(tempEnteredRegNo);
 
-// Templates
+// Compile Templates
 var regTemplateSource = document.querySelector(".regTemplate").innerHTML;
 var userRegTemplate = Handlebars.compile(regTemplateSource);
 
-// function to create and appendChild element
+// function to create and appendChild element using templates
 
 function disapendMyObject(tempObject) {
     var change = Object.keys(tempObject);
-    
-    // for (var i = 0; i < change.length; i++) {
-        // let newTempRegNo = document.createElement('plates');
 
-        // newTempRegNo.textContent = change[i];
-        // tempFinalRegField.appendChild(newTempRegNo);
-        tempFinalRegField.innerHTML = userRegTemplate({regNumbers: change})
+    tempFinalRegField.innerHTML = userRegTemplate({regNumbers: change});
 
-    // }
 }
 
 function disapendMyArray(tempArray) {
     if (tempArray.length != 0) {
-        for (var i = 0; i < tempArray.length; i++) {
-            let newTempRegNo = document.createElement('plates');
 
-            newTempRegNo.textContent = tempArray[i];
-            tempFinalRegField.appendChild(newTempRegNo);
+        tempFinalRegField.innerHTML = userRegTemplate({regNumbers: tempArray});
 
-        }
     } else {
         setTimeout(function () {
             tempFinalRegField.innerHTML = "No registration number from this town";
@@ -190,10 +180,10 @@ function tempRegNumber() {
 function tempShowTownReg() {
     tempFinalRegField.innerHTML = "";
 
-    var tempCheckedRadioTownBtn = document.querySelector("input[name='tempTowns']:checked");
+    var tempCheckedRadioBtn = document.querySelector("input[name='tempTowns']:checked");
 
-    if (tempCheckedRadioTownBtn) {
-        tempCheckedRadioTownBtn = tempCheckedRadioTownBtn.value;
+    if (tempCheckedRadioBtn) {
+        tempCheckedRadioTownBtn = tempCheckedRadioBtn.value;
 
     }
 
@@ -220,7 +210,7 @@ function tempShowTownReg() {
             tempFinalRegField.innerHTML = "";
             tempFinalRegField.classList.remove('error');
             tempFinalRegField.classList.remove('proceed');
-            disapendObject(instRegistration.regNoAdded());
+            disapendMyObject(tempRegistration.regNoAdded());
 
         }, 5500);
 
@@ -239,10 +229,15 @@ function tempShowAllTownReg() {
     document.getElementById('tempRadio-town4').checked = false;
     tempCheckedRadioTownBtn = "";
 
-    var objectTown1 = Object.keys(tempEnteredRegNo);
-    if (objectTown1.length != 0) {
-        disapendMyObject(tempEnteredRegNo);
+    // console.log(tempEnteredRegNo);
+    if (localStorage["registration no."]) {
+        var objectTown1 = Object.keys(tempEnteredRegNo); 
 
+        if (objectTown1 != 0) {
+            disapendMyObject(tempEnteredRegNo);
+
+        }
+        
     } else {
         setTimeout(function () {
             tempFinalRegField.innerHTML = "No Registration number(s) yet";
@@ -263,10 +258,10 @@ function tempShowAllTownReg() {
 // function for Reset Button
 
 function tempResetPage() {
-    localStorage.clear();
+    localStorage.removeItem("registration no.");
 
     setTimeout(function () {
-        tempFinalRegField.innerHTML = "The page has been successfully reset!";
+        tempFinalRegField.innerHTML = "The page will be reset shortly";
         tempFinalRegField.classList.remove('error');
         tempFinalRegField.classList.add('proceed');
         tempRegTextbox.value = "";
@@ -279,7 +274,7 @@ function tempResetPage() {
     }, 0);
 
     setTimeout(function () {
-        tempFinalRegField.innerHTML = "";
+        location.reload();
 
     }, 2500);
 

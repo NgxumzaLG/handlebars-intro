@@ -257,13 +257,14 @@ disapendObject(instRegistration.regNoAdded());
 // function for Reset Button
 
     function resetPage() {
-        localStorage.clear();
+        localStorage.removeItem("registration numbers");
 
         setTimeout(function() { 
             finalRegField.innerHTML = "The page will be reset shortly";
             finalRegField.classList.remove('error');
             finalRegField.classList.add('proceed');
             regTextbox.value = "";
+            strCheckedRadioTownBtn = "";
             document.getElementById('radio-town1').checked = false;
             document.getElementById('radio-town2').checked = false;
             document.getElementById('radio-town3').checked = false;
